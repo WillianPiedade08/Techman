@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="../assets/icone.png" type="image/x-icon">
+    <title>TechMan</title>
+</head>
+
+<body onload="listarEquipamentos();listarPerfis()">
+    <header>
+        <img src="../assets/techman.png" alt="TechMan">
+        <nav>
+            <button id="btnovo" class="oculto" onclick="novoEquipamento.classList.remove('oculto')">Novo equipamento</button>
+            <img onclick="sair()" src="../assets/logout_sair.png" alt="Sair">
+        </nav>
+    </header>
+    <main id="equipamentos">
+    </main>
+    <div id="excluir" class="modal oculto">
+        <div class="janela">
+            <div class="cabecalho">
+                <h2>Exclusão de equipamento</h2>
+                <button onclick="excluir.classList.add('oculto')">X</button>
+            </div>
+            <p>Atenção! Tem certeza que deseja excluir o equipamento? Essa ação não poderá ser desfeita.</p>
+            <button class="excluir" onclick="comfirmaExclusao()">Excluir</button>
+        </div>
+    </div>
+    <div id="comentarios" class="modal oculto">
+        <div class="janela">
+            <div class="cabecalho">
+                <h2>Comentários</h2>
+                <button onclick="comentarios.classList.add('oculto')">X</button>
+            </div>
+            <div id="listaComentarios"></div>
+            <button onclick="novoComentario.classList.remove('oculto')">Adicionar comentário</button>
+        </div>
+    </div>
+    <div id="novoComentario" class="modal oculto">
+        <div class="janela">
+            <div class="cabecalho">
+                <h2>Cadastro de comentário</h2>
+                <button onclick="novoComentario.classList.add('oculto')">X</button>
+            </div>
+            <input type="text" name="comentario" id="comentario" onchange="habilitarNComent(this)">
+            <button id="nComent" onclick="cadastrarComentario(comentario)" disabled>Cadastrar</button>
+        </div>
+    </div>
+    <div id="novoEquipamento" class="modal oculto">
+        <div class="janela">
+            <div class="cabecalho">
+                <h2>Cadastro de equipemanto</h2>
+                <button onclick="novoEquipamento.classList.add('oculto')">X</button>
+            </div>
+            <form id="formEquipamento">
+                <input type="text" name="nome" id="nome" placeholder="Nome" required>
+                <input type="text" name="imagem" id="imagem" placeholder="Endereço da imagem" required>
+                <textarea name="descricao" id="descricao" placeholder="Descricao"></textarea>
+                <div><input type="checkbox" id="ativo" name="ativo" checked><label for="ativo">Ativo</label></div>
+                <button type="submit">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+</body>
+<script src="script.js">
+</script>
+
+</html>
